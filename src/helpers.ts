@@ -7,6 +7,11 @@ export function hasLocalStorage(): boolean {
 }
 
 export function hasWindow(): boolean {
+    // React Native has a window object but no addEventListener
+    if (!window.addEventListener) {
+        return false
+    }
+
     return typeof window !== "undefined"
 }
 
